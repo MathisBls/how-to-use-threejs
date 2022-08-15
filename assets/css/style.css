@@ -1,0 +1,27 @@
+body{
+    margin: 0;
+}
+
+.divrow{
+   width: 100%;
+   margin-top: 350px;
+   position: absolute;
+    display: flex;
+    justify-content: space-between;
+}
+
+.row span{
+    margin: 0;
+    transition: all .2s ease-in-out;
+    font-size: 54px;
+    color:black;
+    margin-left: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.row span:hover
+{
+    transform: scale(1.2);
+}
+
