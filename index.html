@@ -151,8 +151,10 @@
 			}
 			document.getElementById("manuel").disabled = true;
 			document.getElementById("auto").disabled = false;
+			document.getElementById("manuel").style.cursor = "not-allowed";
+			document.getElementById("auto").style.cursor = "pointer";
 			document.getElementById("movement").style.opacity = "1";
-			document.getElementById("mousedecal").style.left = "60%";
+			document.getElementById("mousedecal").style.left = "65%";
 
 		}
 
@@ -166,6 +168,8 @@
 			}
 			document.getElementById("auto").disabled = true;
 			document.getElementById("manuel").disabled = false;
+			document.getElementById("auto").style.cursor = "not-allowed";
+			document.getElementById("manuel").style.cursor = "pointer";
 			document.getElementById("movement").style.opacity = "0";
 			document.getElementById("mousedecal").style.left = "50%";
 		}

@@ -125,3 +125,18 @@ body{
     }
 }
 
+/*fait allez icon de gacueh a droite*/
+@keyframes moveObject
+{
+    from
+    {
+        opacity: 1;
+        top:20px;
+    }
+    to
+    {
+        opacity: 0;
+        top:60px;
+    }
+}
+
