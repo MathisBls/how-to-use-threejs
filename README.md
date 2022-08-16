@@ -1,8 +1,3 @@
-<video controls width="250">
 
-    <source src="[/media/cc0-videos/flower.mp4](https://youtu.be/6oZypSELK_o)"
-
-
-    Sorry, your browser doesn't support embedded videos.
-</video>
+https://user-images.githubusercontent.com/77585805/184794299-e5fdb5a6-27a5-4f63-a968-a5fdcee52e79.mp4
 
