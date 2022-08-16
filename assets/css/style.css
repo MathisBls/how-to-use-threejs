@@ -2,6 +2,7 @@ body{
     margin: 0;
 }
 
+
 .divrow{
    width: 100%;
    margin-top: 350px;
@@ -23,6 +24,30 @@ body{
 .row span:hover
 {
     transform: scale(1.2);
+}
+
+.both-button{
+    display:flex;
+    justify-content: space-around;
+    position:absolute;
+    width: 100%;
+    margin-top:70vh;    
+}
+
+.button{
+    border-radius:15px;
+    border-color:#333;
+    width:180px;
+    height:70px;
+    /*met un fond transparent*/
+    background-color:rgba(255, 255, 255, 0) ;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+}
+
+.button:hover{
+    background-color: #333;
+    color:white;
 }
 
 .middle{
@@ -63,6 +88,27 @@ body{
     text-align: center;
     display:flex;
       
+}
+
+.moveObject{
+    position: absolute;
+    display:flex;
+    flex-direction: column;
+    opacity: 100%;
+    bottom: 0px;
+    left:35%;
+    opacity: 0;
+}
+
+.icon{
+    margin:auto;
+    width: 60px;
+    height: 60px;
+    opacity: 85%;
+}
+
+.moveObject p{
+    text-align: center;
 }
 
 @keyframes mouse

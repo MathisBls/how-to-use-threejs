@@ -27,6 +27,15 @@
 				</Span>
 			</div>
 		</div>
+		<div class="moveObject" id="movement">
+			<img src="/assets/images/move.png" class="icon"></img>
+		<p id="title"><strong>Use <br>left click</strong></p>
+		</div>
+	</div>
+
+	<div class="both-button">
+		<button id="manuel" class="button">MANUEL</button>
+		<button id="auto" class="button">AUTO</button>
 	</div>
 
 
@@ -40,6 +49,7 @@
 		let scene, camera, renderer, hlight, modelSofa, directionalLight, controls;
 
 		let arrayModel = ["/assets/blend/pcportable.gltf", "/assets/blend/shotgun.gltf", "/assets/blend/ghostpacman.gltf", "/assets/blend/oeil.gltf"];
+		let a=0.04;
 		let i = 0;
 		let loader = new THREE.GLTFLoader();
 
@@ -55,7 +65,7 @@
 			camera.position.z = 10 * distance;
 
 			directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-			directionalLight.position.set(0, 0, 1); // set the direction of the light
+			directionalLight.position.set(1, 1, 1); // set the direction of the light
 			scene.add(directionalLight);
 
 			hlight = new THREE.AmbientLight(0x404040, 100);
@@ -81,7 +91,7 @@
 				scene.add(gltf.scene);
 				renderer.render(scene, camera);
 				rotation();
-
+				
 			});
 		}
 
@@ -100,7 +110,6 @@
 			});
 		}
 
-
 		document.getElementById("previous-model").addEventListener("click", changeModelPrevious);
 		function changeModelPrevious() {
 			modelSofa.position.set(100, 1500, 1000);
@@ -116,26 +125,57 @@
 			});
 		}
 
+		document.getElementById("manuel").addEventListener("click", manuel);
+		function manuel()
+		{
+			mouvement();
+
+		}
+
+		document.getElementById("auto").addEventListener("click", auto);
+		function auto()
+		{
+			rotation();
+		}
+
 		function mouvement() {
 			renderer.render(scene, camera);
 			requestAnimationFrame(mouvement);
-		}
+			controls.enableRotate = true;
+			modelSofa.rotation.y -= a;
+			if (a < 0) {
+				a -= 0.01;
+			}
+			document.getElementById("manuel").disabled = true;
+			document.getElementById("auto").disabled = false;
+
+			document.getElementById("movement").style.opacity = "1";
+			//bouge l'id mouse vers la droite
+			document.getElementById("mousedecal").style.left = "60%";
+
+					}
 
 		function rotation() {
 			renderer.render(scene, camera);
-
 			requestAnimationFrame(rotation);
-
-			modelSofa.rotation.y += 0.04;
-
-		};
+			controls.enableRotate = false;
+			modelSofa.rotation.y += a;
+			if (a < 0.04) {
+				a += 0.01;
+			}
+			document.getElementById("auto").disabled = true;
+			document.getElementById("manuel").disabled = false;
+			document.getElementById("movement").style.opacity = "0";
+			document.getElementById("mousedecal").style.left = "50%";
+		}
 
 
 		init();
 
+
 	</script>
 
-	<div class="mouse">
+	<div class="mouse" id="mousedecal">
 		<div class="middle">
 		</div>
 		<p><strong>Use Scroll</strong></p>
