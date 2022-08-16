@@ -29,7 +29,7 @@
 		</div>
 		<div class="moveObject" id="movement">
 			<img src="/assets/images/move.png" class="icon"></img>
-		<p id="title"><strong>Use <br>left click</strong></p>
+			<p id="title"><strong>Use <br>left click</strong></p>
 		</div>
 	</div>
 
@@ -49,7 +49,7 @@
 		let scene, camera, renderer, hlight, modelSofa, directionalLight, controls;
 
 		let arrayModel = ["/assets/blend/pcportable.gltf", "/assets/blend/shotgun.gltf", "/assets/blend/ghostpacman.gltf", "/assets/blend/oeil.gltf"];
-		let a=0.04;
+		let a = 0.04;
 		let i = 0;
 		let loader = new THREE.GLTFLoader();
 
@@ -67,6 +67,11 @@
 			directionalLight = new THREE.DirectionalLight(0xffffff, 1);
 			directionalLight.position.set(1, 1, 1); // set the direction of the light
 			scene.add(directionalLight);
+
+			//eclaire la scene
+			hlight = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.5);
+			hlight.position.set(0, 1, 0);
+			scene.add(hlight);
 
 			hlight = new THREE.AmbientLight(0x404040, 100);
 
@@ -91,7 +96,7 @@
 				scene.add(gltf.scene);
 				renderer.render(scene, camera);
 				rotation();
-				
+
 			});
 		}
 
@@ -126,15 +131,13 @@
 		}
 
 		document.getElementById("manuel").addEventListener("click", manuel);
-		function manuel()
-		{
+		function manuel() {
 			mouvement();
 
 		}
 
 		document.getElementById("auto").addEventListener("click", auto);
-		function auto()
-		{
+		function auto() {
 			rotation();
 		}
 
@@ -148,12 +151,10 @@
 			}
 			document.getElementById("manuel").disabled = true;
 			document.getElementById("auto").disabled = false;
-
 			document.getElementById("movement").style.opacity = "1";
-			//bouge l'id mouse vers la droite
 			document.getElementById("mousedecal").style.left = "60%";
 
-					}
+		}
 
 		function rotation() {
 			renderer.render(scene, camera);
